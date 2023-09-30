@@ -6,8 +6,6 @@ import Login from "./containers/Login/Login";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
-        <div className="container">
-            <Login />
-        </div>
+        <Login />
     </React.StrictMode>
 );
