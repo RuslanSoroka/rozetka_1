@@ -15,7 +15,3 @@ code {
 * {
     box-sizing: border-box;
 }
-
-.container {
-    min-width: 1200px;
-}

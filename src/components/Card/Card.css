@@ -16,3 +16,17 @@
     flex-direction: column;
     padding-top: 85px;
 }
+
+.position-for-eye {
+    position: relative;
+}
+
+.open-eye {
+    width: 34px;
+    height: 24px;
+    fill: #44b26f;
+    position: absolute;
+    right: 4px;
+    top: 16px;
+    bottom: 16px;
+}
