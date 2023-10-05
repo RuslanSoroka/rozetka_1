@@ -1,6 +1,6 @@
-import DivButton from "../../components/DivButton/DivButton";
+import ProductsButton from "../../components/ProductsButton/ProductsButton";
 import Table from "../../components/Table/Table";
-import "./Table_products.css";
+import "./TableProducts.css";
 import Header from "../../components/Header/Header";
 import { BsPlusLg, BsPerson } from "react-icons/bs";
 
@@ -34,11 +34,11 @@ const Table_products = () => {
             <div className="main">
                 <div className="container">
                     <div className="admin-panel">
-                        <DivButton
+                        <ProductsButton
                             text="Preview"
                             icon={<BsPerson className="icon" />}
                         />
-                        <DivButton
+                        <ProductsButton
                             text="Add product"
                             icon={<BsPlusLg className="icon" />}
                         />
