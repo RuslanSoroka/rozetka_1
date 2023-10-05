@@ -5,3 +5,6 @@
     justify-content: center;
     align-items: center;
 }
+.container {
+    min-width: 1200px;
+}

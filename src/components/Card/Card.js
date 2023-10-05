@@ -2,6 +2,7 @@ import Input from "../Input/Input";
 import Button from "../Button/Button";
 import "./Card.css";
 import logo from "../../assets/login-logo.svg";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Card = () => {
     return (
@@ -16,12 +17,15 @@ const Card = () => {
                     name="userName"
                     className="login-input"
                 />
-                <Input
-                    placeholder="Password"
-                    type="password"
-                    name="password"
-                    className="login-input input-eye"
-                />
+                <div className="position-for-eye">
+                    <Input
+                        placeholder="Password"
+                        type="password"
+                        name="password"
+                        className="login-input input-eye"
+                    />
+                    <FaEye className="open-eye" />
+                </div>
                 <Button
                     className="button login-card-button"
                     value="Login"

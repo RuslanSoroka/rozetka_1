@@ -1,0 +1,42 @@
+table {
+    border-collapse: collapse;
+    width: 870px;
+}
+
+th,
+td {
+    border: none;
+    padding: 8px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    width: 16.667%;
+}
+
+th {
+    background-color: #0ec86f;
+    color: #726969;
+}
+
+tr {
+    background-color: #3cd78c;
+    color: #a58f8f;
+}
+
+tr:nth-child(odd) {
+    background-color: #d9d9d9;
+    color: #ffffff;
+}
+
+.empty-row {
+    border: none;
+    background-color: transparent;
+}
+
+.mr-8 {
+    margin-right: 8px;
+}
+
+.icon-in-table {
+    color: black;
+}

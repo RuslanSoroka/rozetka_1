@@ -1,0 +1,30 @@
+.bg-page-table {
+    min-height: 100vh;
+    background-color: #44b26f;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.admin-panel {
+    display: flex;
+    justify-content: space-between;
+}
+
+.products-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-table__title {
+    font-size: 64px;
+    font-weight: bold;
+    line-height: 77px;
+    letter-spacing: 0em;
+    color: #ffffff;
+    margin-bottom: 75px;
+    text-align: center;
+}
