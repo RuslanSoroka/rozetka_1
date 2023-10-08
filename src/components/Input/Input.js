@@ -1,14 +1,14 @@
 import "./Input.css";
 
-const Input = (props) => {
+const Input = ({ type, placeholder, name, className, onChange, value }) => {
     return (
         <input
-            type={props.type}
-            placeholder={props.placeholder}
-            name={props.name}
-            className={props.className}
-            onChange={props.onChange}
-            value={props.value}
+            type={type}
+            placeholder={placeholder}
+            name={name}
+            className={className}
+            onChange={onChange}
+            value={value}
         ></input>
     );
 };

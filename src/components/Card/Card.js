@@ -23,10 +23,9 @@ const Card = () => {
 
     function handleSubmit(event) {
         event.preventDefault();
-        if (
-            !setRequireName("Name is require!") &&
-            !setRequirePassword("Password is require!")
-        ) {
+        setRequireName("Name is require!");
+        setRequirePassword("Password is require!");
+        if (userName.length >= 3 && password.length >= 3) {
             if (userName && password) {
                 const item = {
                     registration: {
