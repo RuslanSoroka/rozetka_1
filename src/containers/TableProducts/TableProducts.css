@@ -1,13 +1,3 @@
-.bg-page-table {
-    min-height: 100vh;
-    background-color: #44b26f;
-}
-
-.container {
-    max-width: 1300px;
-    margin: 0 auto;
-}
-
 .admin-panel {
     display: flex;
     justify-content: space-between;

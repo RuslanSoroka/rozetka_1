@@ -1,21 +1,21 @@
 import "./Table.css";
 import { BsFillArchiveFill, BsFillPencilFill } from "react-icons/bs";
 
-const Table = (props) => {
+const Table = ({ id, category, name, quantiti, price, data }) => {
     return (
         <table className="table">
             <thead>
                 <tr>
-                    <th>{props.id}</th>
-                    <th>{props.category}</th>
-                    <th>{props.name}</th>
-                    <th>{props.quantiti}</th>
-                    <th>{props.price}</th>
+                    <th>{id}</th>
+                    <th>{category}</th>
+                    <th>{name}</th>
+                    <th>{quantiti}</th>
+                    <th>{price}</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                {props.data.map((products) => {
+                {data.map((products) => {
                     return (
                         <tr key={products.id}>
                             <td>{products.id}</td>

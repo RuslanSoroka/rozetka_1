@@ -11,6 +11,7 @@ const Card = () => {
     const [requireName, setRequireName] = useState("");
     const [requirePassword, setRequirePassword] = useState("");
     const [invalidData, setInvalidData] = useState("");
+    const [isShowPassword, setIsShowPassword] = useState(true);
 
     function handleChange(event) {
         if (event.target.name === "userName") {
@@ -56,6 +57,13 @@ const Card = () => {
             }
         }
     }
+
+    function handleClick() {
+        if (isShowPassword === true) {
+            return setIsShowPassword(false);
+        }
+        return setIsShowPassword(true);
+    }
     return (
         <section className="login-card">
             <div className="login-card-logo">
@@ -77,7 +85,7 @@ const Card = () => {
                 <div className="box-form-valid position-for-eye">
                     <Input
                         placeholder="Password"
-                        type="password"
+                        type={isShowPassword ? "password" : "text"}
                         name="password"
                         className="login-input input-eye"
                         onChange={handleChange}
@@ -87,7 +95,12 @@ const Card = () => {
                             {requirePassword}
                         </span>
                     )}
-                    <FaEye className="open-eye" />
+                    {isShowPassword && (
+                        <FaEye className="eye" onClick={handleClick} />
+                    )}
+                    {!isShowPassword && (
+                        <FaEyeSlash className="eye" onClick={handleClick} />
+                    )}
                 </div>
                 <Button
                     className="button login-card-button"

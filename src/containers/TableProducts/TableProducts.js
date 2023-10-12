@@ -3,33 +3,25 @@ import Table from "../../components/Table/Table";
 import "./TableProducts.css";
 import Header from "../../components/Header/Header";
 import { BsPlusLg, BsPerson } from "react-icons/bs";
+import { useState, useEffect } from "react";
 
-const Table_products = () => {
-    const products = [
-        {
-            id: 1,
-            category: "PC",
-            name: "Lenovo Y50-70",
-            quantiti: 5,
-            price: "25.000.00",
-        },
-        {
-            id: 2,
-            category: "Sport",
-            name: "Ball",
-            quantiti: 10,
-            price: "100.00",
-        },
-        {
-            id: 3,
-            category: "Tourism",
-            name: "Boots",
-            quantiti: 20,
-            price: "1.000.00",
-        },
-    ];
+const TableProducts = () => {
+    const [infoProductsTable, setInfoProductsTable] = useState([]);
+    useEffect(() => {
+        getProducts();
+    }, []);
+
+    const PRODUCTS_API =
+        "https://6526885b917d673fd76c791f.mockapi.io/productsTable";
+
+    const getProducts = async () => {
+        const respond = await fetch(PRODUCTS_API);
+        const data = await respond.json();
+        setInfoProductsTable(data);
+    };
+
     return (
-        <div className="bg-page-table">
+        <div className="bg-page">
             <Header />
             <div className="main">
                 <div className="container">
@@ -46,7 +38,7 @@ const Table_products = () => {
                     <section className="products-table">
                         <h2 className="product-table__title">Products</h2>
                         <Table
-                            data={products}
+                            data={infoProductsTable}
                             id="Id"
                             category="Category"
                             name="Name"
@@ -60,4 +52,4 @@ const Table_products = () => {
     );
 };
 
-export default Table_products;
+export default TableProducts;
