@@ -4,7 +4,8 @@ import "./Card.css";
 import logo from "../../assets/login-logo.svg";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
-const SERVER_URL = "http://localhost:3003/";
+import { SERVER_URL } from "../../constants/index";
+
 const Card = () => {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
@@ -58,12 +59,7 @@ const Card = () => {
         }
     }
 
-    function handleClick() {
-        if (isShowPassword === true) {
-            return setIsShowPassword(false);
-        }
-        return setIsShowPassword(true);
-    }
+    const handleClick = () => setIsShowPassword(!isShowPassword);
     return (
         <section className="login-card">
             <div className="login-card-logo">
@@ -95,10 +91,9 @@ const Card = () => {
                             {requirePassword}
                         </span>
                     )}
-                    {isShowPassword && (
+                    {isShowPassword ? (
                         <FaEye className="eye" onClick={handleClick} />
-                    )}
-                    {!isShowPassword && (
+                    ) : (
                         <FaEyeSlash className="eye" onClick={handleClick} />
                     )}
                 </div>

@@ -1,6 +1,7 @@
 import "./PrewiewProducts.css";
 import Header from "../../components/Header/Header";
 import CardProduct from "../../components/CardProduct/CardProduct";
+import { PRODUCTS_API } from "../../constants";
 import { BsCartCheck, BsCartX } from "react-icons/bs";
 import { useState, useEffect } from "react";
 
@@ -10,11 +11,8 @@ const PreviewProducts = () => {
         getProducts();
     }, []);
 
-    const PRODUCTS_API =
-        "https://6526885b917d673fd76c791f.mockapi.io/productsPreview";
-
     const getProducts = async () => {
-        const respond = await fetch(PRODUCTS_API);
+        const respond = await fetch(`${PRODUCTS_API}/productsPreview`);
         const data = await respond.json();
         setPreviewProductsData(data);
     };

@@ -2,6 +2,7 @@ import ProductsButton from "../../components/ProductsButton/ProductsButton";
 import Table from "../../components/Table/Table";
 import "./TableProducts.css";
 import Header from "../../components/Header/Header";
+import { PRODUCTS_API } from "../../constants";
 import { BsPlusLg, BsPerson } from "react-icons/bs";
 import { useState, useEffect } from "react";
 
@@ -11,11 +12,8 @@ const TableProducts = () => {
         getProducts();
     }, []);
 
-    const PRODUCTS_API =
-        "https://6526885b917d673fd76c791f.mockapi.io/productsTable";
-
     const getProducts = async () => {
-        const respond = await fetch(PRODUCTS_API);
+        const respond = await fetch(`${PRODUCTS_API}/productsTable`);
         const data = await respond.json();
         setInfoProductsTable(data);
     };
