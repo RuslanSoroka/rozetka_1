@@ -1,11 +1,15 @@
 import "./CardProduct.css";
 
-const CardProduct = ({ data, className, done, undone }) => {
+const CardProduct = ({ data, className, done, undone, onRefer }) => {
     return (
         <>
             {data.map(({ id, name, quantiti, price, img, description }) => {
                 return (
-                    <article key={id} className={className}>
+                    <article
+                        key={id}
+                        className={className}
+                        onClick={() => onRefer(id)}
+                    >
                         <img
                             className="img-preview-card"
                             src={img}

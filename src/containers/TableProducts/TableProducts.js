@@ -5,6 +5,7 @@ import Header from "../../components/Header/Header";
 import { PRODUCTS_API } from "../../constants";
 import { BsPlusLg, BsPerson } from "react-icons/bs";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const TableProducts = () => {
     const [infoProductsTable, setInfoProductsTable] = useState([]);
@@ -18,6 +19,9 @@ const TableProducts = () => {
         setInfoProductsTable(data);
     };
 
+    const navigate = useNavigate();
+    const showPreviewPage = () => navigate("/preview");
+
     return (
         <div className="bg-page">
             <Header />
@@ -27,6 +31,7 @@ const TableProducts = () => {
                         <ProductsButton
                             text="Preview"
                             icon={<BsPerson className="icon" />}
+                            onClick={showPreviewPage}
                         />
                         <ProductsButton
                             text="Add product"

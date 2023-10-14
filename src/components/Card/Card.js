@@ -5,6 +5,7 @@ import logo from "../../assets/login-logo.svg";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import { SERVER_URL } from "../../constants/index";
+import { useNavigate } from "react-router-dom";
 
 const Card = () => {
     const [userName, setUserName] = useState("");
@@ -13,6 +14,8 @@ const Card = () => {
     const [requirePassword, setRequirePassword] = useState("");
     const [invalidData, setInvalidData] = useState("");
     const [isShowPassword, setIsShowPassword] = useState(true);
+
+    const navigate = useNavigate();
 
     function handleChange(event) {
         if (event.target.name === "userName") {
@@ -51,9 +54,10 @@ const Card = () => {
                             return response.json();
                         }
                     })
-                    .then((data) =>
-                        localStorage.setItem("token", JSON.stringify(data.key))
-                    )
+                    .then((data) => {
+                        localStorage.setItem("token", JSON.stringify(data.key));
+                        navigate("/table");
+                    })
                     .catch((error) => console.log(error));
             }
         }
