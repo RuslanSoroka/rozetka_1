@@ -4,13 +4,15 @@ import "./Card.css";
 import logo from "../../assets/login-logo.svg";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
-const SERVER_URL = "http://localhost:3003/";
+import { SERVER_URL } from "../../constants/index";
+
 const Card = () => {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [requireName, setRequireName] = useState("");
     const [requirePassword, setRequirePassword] = useState("");
     const [invalidData, setInvalidData] = useState("");
+    const [isShowPassword, setIsShowPassword] = useState(true);
 
     function handleChange(event) {
         if (event.target.name === "userName") {
@@ -56,6 +58,8 @@ const Card = () => {
             }
         }
     }
+
+    const handleClick = () => setIsShowPassword(!isShowPassword);
     return (
         <section className="login-card">
             <div className="login-card-logo">
@@ -77,7 +81,7 @@ const Card = () => {
                 <div className="box-form-valid position-for-eye">
                     <Input
                         placeholder="Password"
-                        type="password"
+                        type={isShowPassword ? "password" : "text"}
                         name="password"
                         className="login-input input-eye"
                         onChange={handleChange}
@@ -87,7 +91,11 @@ const Card = () => {
                             {requirePassword}
                         </span>
                     )}
-                    <FaEye className="open-eye" />
+                    {isShowPassword ? (
+                        <FaEye className="eye" onClick={handleClick} />
+                    ) : (
+                        <FaEyeSlash className="eye" onClick={handleClick} />
+                    )}
                 </div>
                 <Button
                     className="button login-card-button"

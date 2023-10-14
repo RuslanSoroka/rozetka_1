@@ -1,0 +1,4 @@
+.flex-box-preview-cards {
+    display: flex;
+    flex-wrap: wrap;
+}

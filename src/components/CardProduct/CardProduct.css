@@ -1,0 +1,83 @@
+.preview-card {
+    width: 273px;
+    background-color: #ffffff;
+    margin: 62px 81.5px;
+    padding: 37px 13px 24px 30px;
+}
+
+.img-preview-card {
+    width: 209px;
+    height: 139px;
+    margin-bottom: 26px;
+}
+
+.kind-product-preview-card {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 26px;
+}
+
+.box-info--preview-card {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 39px;
+}
+
+.price-product-preview-card {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #fc5b00;
+}
+
+.quantiti-product-preview-card {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #000000;
+}
+
+.position-state-product {
+    position: relative;
+}
+
+.state-product-preview-card {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #05bc52;
+    margin-left: 12px;
+}
+
+.error-delivery {
+    color: red;
+}
+
+.bs-cart-check-icon {
+    position: absolute;
+    left: 0;
+    width: 28px;
+    height: 28px;
+    color: #05bc52;
+    bottom: -5px;
+}
+
+.bs-cart-x-icon {
+    position: absolute;
+    left: 28px;
+    width: 28px;
+    height: 28px;
+    color: red;
+    bottom: -5px;
+}

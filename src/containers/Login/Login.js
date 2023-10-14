@@ -3,9 +3,11 @@ import Card from "../../components/Card/Card";
 
 const Login = () => {
     return (
-        <div className="container">
-            <div className="login-bg-page">
-                <Card />
+        <div className="bg-page">
+            <div className="container">
+                <div className=" position-login-card">
+                    <Card />
+                </div>
             </div>
         </div>
     );

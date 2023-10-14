@@ -1,10 +1,6 @@
-.login-bg-page {
-    min-height: 100vh;
-    background-color: #44b26f;
+.position-login-card {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.container {
-    min-width: 1200px;
+    min-height: 100vh;
 }
