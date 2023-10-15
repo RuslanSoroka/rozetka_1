@@ -19,7 +19,7 @@ const PreviewProducts = () => {
     };
 
     const navigate = useNavigate();
-    const showSelectedProduct = (id) => navigate(`products${id}`);
+    const showSelectedProduct = (id) => navigate(`/preview/${id}`);
 
     return (
         <div className="bg-page">

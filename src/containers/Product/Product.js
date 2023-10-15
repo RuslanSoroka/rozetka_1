@@ -10,7 +10,7 @@ const Product = () => {
             <div className="main">
                 <div className="container">
                     <p style={{ color: "red", fontSize: "30px" }}>
-                        {productId}
+                        Chousen product is: {productId}
                     </p>
                 </div>
             </div>
