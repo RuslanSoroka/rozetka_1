@@ -1,10 +1,10 @@
 import "./ProductsButton.css";
 
-const DivButton = (props) => {
+const DivButton = ({ icon, text, onClick }) => {
     return (
-        <div className="div-buttons">
-            {props.icon}
-            {props.text}
+        <div className="div-buttons" onClick={onClick}>
+            {icon}
+            {text}
         </div>
     );
 };

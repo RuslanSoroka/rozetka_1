@@ -5,6 +5,7 @@ import logo from "../../assets/login-logo.svg";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import { SERVER_URL } from "../../constants/index";
+import { useNavigate } from "react-router-dom";
 
 const Card = () => {
     const [userName, setUserName] = useState("");
@@ -13,6 +14,8 @@ const Card = () => {
     const [requirePassword, setRequirePassword] = useState("");
     const [invalidData, setInvalidData] = useState("");
     const [isShowPassword, setIsShowPassword] = useState(true);
+
+    const navigate = useNavigate();
 
     function handleChange(event) {
         if (event.target.name === "userName") {
@@ -23,7 +26,7 @@ const Card = () => {
         }
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
         setRequireName("Name is require!");
         setRequirePassword("Password is require!");
@@ -35,26 +38,27 @@ const Card = () => {
                         password: password,
                     },
                 };
-                fetch(SERVER_URL, {
-                    method: "POST",
-                    body: JSON.stringify(item),
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                })
-                    .then((response) => {
-                        if (response.status > 400) {
-                            setInvalidData("Name or password invalid!");
-                            throw Error("Name or password invalid!");
-                        } else {
-                            setInvalidData("");
-                            return response.json();
-                        }
-                    })
-                    .then((data) =>
-                        localStorage.setItem("token", JSON.stringify(data.key))
-                    )
-                    .catch((error) => console.log(error));
+                try {
+                    const response = await fetch(SERVER_URL, {
+                        method: "POST",
+                        body: JSON.stringify(item),
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                    });
+
+                    if (response.status > 400) {
+                        setInvalidData("Name or password invalid!");
+                        throw Error("Name or password invalid!");
+                    }
+
+                    const data = await response.json();
+                    setInvalidData("");
+                    localStorage.setItem("token", JSON.stringify(data.key));
+                    navigate("/table");
+                } catch (error) {
+                    console.log(error);
+                }
             }
         }
     }
