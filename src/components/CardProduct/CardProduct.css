@@ -11,7 +11,7 @@
     margin-bottom: 26px;
 }
 
-.kind-product-preview-card {
+.kind-preview-card {
     font-size: 16px;
     font-weight: 500;
     line-height: 19px;
@@ -21,13 +21,13 @@
     margin-bottom: 26px;
 }
 
-.box-info--preview-card {
+.box-preview-card {
     display: flex;
     justify-content: space-between;
     margin-bottom: 39px;
 }
 
-.price-product-preview-card {
+.price-preview-card {
     font-family: Inter;
     font-size: 16px;
     font-weight: 700;
@@ -37,7 +37,7 @@
     color: #fc5b00;
 }
 
-.quantiti-product-preview-card {
+.quantiti-preview-card {
     font-size: 15px;
     font-weight: 500;
     line-height: 18px;
@@ -46,11 +46,11 @@
     color: #000000;
 }
 
-.position-state-product {
+.position-state-preview {
     position: relative;
 }
 
-.state-product-preview-card {
+.state-preview-card {
     font-size: 15px;
     font-weight: 500;
     line-height: 18px;
