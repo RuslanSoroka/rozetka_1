@@ -8,7 +8,7 @@ import { BsPatchCheck, BsPatchMinus, BsArrowLeft } from "react-icons/bs";
 
 const Product = () => {
     const { productId } = useParams();
-    const [selectedProduct, setSelectedProduct] = useState([]);
+    const [selectedProduct, setSelectedProduct] = useState("");
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -20,7 +20,8 @@ const Product = () => {
             `${PRODUCTS_API}/productsPreview/${productId}`
         );
         const data = await response.json();
-        setSelectedProduct([data]);
+
+        setSelectedProduct(data);
     };
 
     return (
