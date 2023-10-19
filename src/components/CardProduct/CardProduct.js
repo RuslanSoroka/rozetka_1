@@ -3,7 +3,7 @@ import "./CardProduct.css";
 const CardProduct = ({ data, className, done, undone, onRefer }) => {
     return (
         <>
-            {data.map(({ id, name, quantiti, price, img, description }) => {
+            {data.map(({ id, name, quantiti, price, img }) => {
                 return (
                     <article
                         key={id}
@@ -15,23 +15,18 @@ const CardProduct = ({ data, className, done, undone, onRefer }) => {
                             src={img}
                             alt="products"
                         ></img>
-                        <p className="kind-product-preview-card">
-                            {name}
-                            <span>{description}</span>
-                        </p>
+                        <p className="kind-preview-card">{name}</p>
 
-                        <div className="box-info--preview-card">
-                            <p className="price-product-preview-card">
-                                {price}$
-                            </p>
-                            <p className="quantiti-product-preview-card">
+                        <div className="box-preview-card">
+                            <p className="price-preview-card">{price}$</p>
+                            <p className="quantiti-preview-card">
                                 Quantiti: {quantiti}
                             </p>
                         </div>
-                        <div className="position-state-product">
+                        <div className="position-state-preview">
                             {quantiti > 0 && (
                                 <>
-                                    <p className="state-product-preview-card">
+                                    <p className="state-preview-card">
                                         goods ready for dispatch
                                     </p>
                                     {done}
@@ -39,7 +34,7 @@ const CardProduct = ({ data, className, done, undone, onRefer }) => {
                             )}
                             {quantiti <= 0 && (
                                 <>
-                                    <p className="state-product-preview-card error-delivery">
+                                    <p className="state-preview-card error-delivery">
                                         goods not ready
                                     </p>
                                     {undone}

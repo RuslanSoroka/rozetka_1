@@ -1,0 +1,26 @@
+.bs-path-check {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 0px;
+    left: -25px;
+    color: #3cd78c;
+}
+
+.bs-path-minus {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 0;
+    left: -25px;
+    color: red;
+}
+
+.bs-arrow-left {
+    width: 76px;
+    height: 60px;
+    position: absolute;
+    top: -10px;
+    color: #000000;
+    cursor: pointer;
+}
