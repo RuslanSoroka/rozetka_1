@@ -1,0 +1,18 @@
+.modal-button {
+    margin: 10px;
+    width: 115px;
+    height: 33px;
+    border-radius: 7px;
+    border: none;
+    font-size: 19px;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.delete {
+    background-color: #ff3030;
+}
+
+.cancel {
+    background-color: #6c757d;
+}
