@@ -1,7 +1,15 @@
 import "./Table.css";
 import { BsFillArchiveFill, BsFillPencilFill } from "react-icons/bs";
 
-const Table = ({ id, category, name, quantiti, price, data }) => {
+const Table = ({
+    id,
+    category,
+    name,
+    quantiti,
+    price,
+    data,
+    onModalDelete,
+}) => {
     return (
         <table className="table">
             <thead>
@@ -25,15 +33,15 @@ const Table = ({ id, category, name, quantiti, price, data }) => {
                             <td>{products.price}</td>
                             <td>
                                 <BsFillPencilFill className="icon-in-table mr-8" />
-                                <BsFillArchiveFill className="icon-in-table" />
+                                <BsFillArchiveFill
+                                    className="icon-in-table"
+                                    onClick={() => onModalDelete(products.id)}
+                                />
                             </td>
                         </tr>
                     );
                 })}
             </tbody>
-            {/* <tr className="table-tr-body"> */}
-
-            {/* </tr> */}
         </table>
     );
 };
