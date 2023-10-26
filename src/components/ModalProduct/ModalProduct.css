@@ -1,0 +1,55 @@
+.modal-product-insert {
+    width: 429px;
+    min-height: 532px;
+    margin: 100px auto 0;
+    background-color: #1a1919;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+}
+
+.modal-product-header {
+    background-color: rgb(66 147 66);
+    width: 100%;
+    text-align: center;
+    font-size: 26px;
+    padding-bottom: 9px;
+    margin-bottom: 40px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.modal-product-title {
+    color: white;
+}
+
+.modal-product-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-product-form-label {
+    color: #929292;
+    margin-bottom: 5px;
+}
+
+.modal-product-form-field {
+    width: 360px;
+    height: 31px;
+    background-color: #929292;
+}
+
+.error-table {
+    color: red;
+    font-size: 15px;
+}
+
+.modal-products-buttons-box {
+    padding: 40px 0;
+}
+
+.submit {
+    background-color: rgb(66 147 66);
+}
