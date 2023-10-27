@@ -9,6 +9,7 @@ const Table = ({
     price,
     data,
     onModalDelete,
+    onModalEdit,
 }) => {
     return (
         <table className="table">
@@ -32,7 +33,10 @@ const Table = ({
                             <td>{products.quantiti}</td>
                             <td>{products.price}</td>
                             <td>
-                                <BsFillPencilFill className="icon-in-table mr-8" />
+                                <BsFillPencilFill
+                                    className="icon-in-table mr-8"
+                                    onClick={() => onModalEdit(products)}
+                                />
                                 <BsFillArchiveFill
                                     className="icon-in-table"
                                     onClick={() => onModalDelete(products.id)}

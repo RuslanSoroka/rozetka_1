@@ -7,12 +7,16 @@ import { BsPlusLg, BsPerson } from "react-icons/bs";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ModalDelete from "../../components/ModalDelete/ModalDelete";
+import ModalProduct from "../../components/ModalProduct/ModalProduct";
 
 const TableProducts = () => {
     const [infoProductsTable, setInfoProductsTable] = useState([]);
     const [isProductsLoaded, setIsProductsLoaded] = useState(false);
     const [modalDelete, setModalDelete] = useState(false);
+    const [modalProductEdit, setModalProductEdit] = useState(false);
+    const [modalProductAdd, setModalProductAdd] = useState(false);
     const [productId, setProductID] = useState("");
+    const [selectedProduct, setSelectedProduct] = useState(null);
 
     useEffect(() => {
         if (!isProductsLoaded) {
@@ -30,17 +34,31 @@ const TableProducts = () => {
     const navigate = useNavigate();
     const showPreviewPage = () => navigate("/preview");
 
-    const toggleTrigerModal = (id) => {
+    const toggleModalDelete = (id) => {
         setProductID(id);
         setModalDelete(!modalDelete);
+    };
+
+    const toggleModalProductEdit = (product) => {
+        setProductID(product.id);
+        setSelectedProduct(product);
+        setModalProductEdit(!modalProductEdit);
+    };
+
+    const toggleModalProductAdd = () => {
+        setModalProductAdd(!modalProductAdd);
     };
 
     const deleteProduct = async () => {
         await fetch(`${PRODUCTS_API}/productsTable/${productId}`, {
             method: "DELETE",
         });
-        toggleTrigerModal();
+        toggleModalDelete();
         setIsProductsLoaded(false);
+    };
+
+    const handleSubmit = () => {
+        setModalProductEdit(!modalProductEdit);
     };
 
     return (
@@ -58,6 +76,7 @@ const TableProducts = () => {
                             <ProductsButton
                                 text="Add product"
                                 icon={<BsPlusLg className="icon" />}
+                                onClick={toggleModalProductAdd}
                             />
                         </div>
                         <section className="products-table">
@@ -69,16 +88,34 @@ const TableProducts = () => {
                                 name="Name"
                                 quantiti="Quantiti"
                                 price="Price($)"
-                                onModalDelete={toggleTrigerModal}
+                                onModalDelete={toggleModalDelete}
+                                onModalEdit={toggleModalProductEdit}
                             />
                         </section>
                     </div>
                 </div>
             </div>
+            {modalProductEdit && (
+                <ModalProduct
+                    className="modal-product"
+                    title="Edit product"
+                    editData={selectedProduct}
+                    onCancel={toggleModalProductEdit}
+                    onSubmit={handleSubmit}
+                />
+            )}
+            {modalProductAdd && (
+                <ModalProduct
+                    className="modal-product"
+                    title="Add product"
+                    onCancel={toggleModalProductAdd}
+                    onSubmit={toggleModalProductAdd}
+                />
+            )}
             {modalDelete && (
                 <ModalDelete
                     className="modal-delete"
-                    onCancel={toggleTrigerModal}
+                    onCancel={toggleModalDelete}
                     onDelete={deleteProduct}
                 />
             )}
