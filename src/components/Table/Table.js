@@ -31,7 +31,7 @@ const Table = ({
                             <td>{products.category}</td>
                             <td>{products.name}</td>
                             <td>{products.quantiti}</td>
-                            <td>{products.price}</td>
+                            <td>{Number(products.price).toFixed(2)}</td>
                             <td>
                                 <BsFillPencilFill
                                     className="icon-in-table mr-8"

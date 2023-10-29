@@ -6,32 +6,40 @@ import ModalButton from "../ModalButton/ModalButton";
 const SignupSchema = Yup.object().shape({
     category: Yup.string().min(2, "Too Short!").required("Required"),
     name: Yup.string().min(2, "Too Short!").required("Required"),
-    quantiti: Yup.string().min(1, "Too Short!").required("Required"),
-    price: Yup.string().min(1, "Too Short!").required("Required"),
+    fullName: Yup.string().min(2, "Too Short!").required("Required"),
+    quantiti: Yup.number().required("Required"),
+    price: Yup.number().min(1, "Too Short!").required("Required"),
+    img: Yup.string().min(1, "Too Short!").required("Required"),
+    description: Yup.string().min(1, "Too Short!").required("Required"),
 });
 
 const ModalProduct = ({ className, title, editData, onCancel, onSubmit }) => {
     const setInitialValues = () => {
-        if (editData !== null && editData !== undefined) {
-            const initialValues = {
-                category: editData.category,
-                name: editData.name,
-                quantiti: editData.quantiti,
-                price: editData.price,
-                description: "",
-            };
-            return initialValues;
-        } else {
+        if (!editData) {
             const initialValues = {
                 category: "",
                 name: "",
+                fullName: "",
                 quantiti: "",
                 price: "",
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRbPYR14RHnvKBcdKr3rZUyFEclQNuSw-OWQ&usqp=CAU",
                 description: "",
             };
             return initialValues;
         }
+
+        const initialValues = {
+            category: editData.category,
+            name: editData.name,
+            fullName: editData.fullName,
+            quantiti: editData.quantiti,
+            price: editData.price,
+            img: editData.img,
+            description: editData.description,
+        };
+        return initialValues;
     };
+
     return (
         <div className="modal">
             <div className={`${className}-insert`}>
@@ -42,7 +50,7 @@ const ModalProduct = ({ className, title, editData, onCancel, onSubmit }) => {
                     <Formik
                         initialValues={setInitialValues()}
                         validationSchema={SignupSchema}
-                        onSubmit={onSubmit}
+                        onSubmit={(initialValues) => onSubmit(initialValues)}
                     >
                         {({ isSubmitting }) => (
                             <Form className={`${className}-form`}>
@@ -55,7 +63,12 @@ const ModalProduct = ({ className, title, editData, onCancel, onSubmit }) => {
                                         }) => (
                                             <div>
                                                 <input
-                                                    className={`${className}-form-field`}
+                                                    className={`${className}-form-field ${
+                                                        errors.category &&
+                                                        touched.category
+                                                            ? "field-error"
+                                                            : ``
+                                                    }`}
                                                     type="text"
                                                     placeholder="Category"
                                                     {...field}
@@ -79,7 +92,12 @@ const ModalProduct = ({ className, title, editData, onCancel, onSubmit }) => {
                                         }) => (
                                             <div>
                                                 <input
-                                                    className={`${className}-form-field`}
+                                                    className={`${className}-form-field ${
+                                                        errors.name &&
+                                                        touched.name
+                                                            ? "field-error"
+                                                            : ``
+                                                    }`}
                                                     type="text"
                                                     placeholder="Name"
                                                     {...field}
@@ -95,6 +113,35 @@ const ModalProduct = ({ className, title, editData, onCancel, onSubmit }) => {
                                     </Field>
                                 </label>
                                 <label className={`${className}-form-label`}>
+                                    Full Name
+                                    <Field name="fullName">
+                                        {({
+                                            field,
+                                            form: { touched, errors },
+                                        }) => (
+                                            <div>
+                                                <input
+                                                    className={`${className}-form-field ${
+                                                        errors.fullName &&
+                                                        touched.fullName
+                                                            ? "field-error"
+                                                            : ``
+                                                    }`}
+                                                    type="text"
+                                                    placeholder="Full Name"
+                                                    {...field}
+                                                />
+                                                {touched.fullName &&
+                                                    errors.fullName && (
+                                                        <div className="error-table">
+                                                            {errors.fullName}
+                                                        </div>
+                                                    )}
+                                            </div>
+                                        )}
+                                    </Field>
+                                </label>
+                                <label className={`${className}-form-label`}>
                                     Quantiti
                                     <Field name="quantiti">
                                         {({
@@ -103,7 +150,12 @@ const ModalProduct = ({ className, title, editData, onCancel, onSubmit }) => {
                                         }) => (
                                             <div>
                                                 <input
-                                                    className={`${className}-form-field`}
+                                                    className={`${className}-form-field ${
+                                                        errors.quantiti &&
+                                                        touched.quantiti
+                                                            ? "field-error"
+                                                            : ``
+                                                    }`}
                                                     type="text"
                                                     placeholder="Qiantiti"
                                                     {...field}
@@ -127,7 +179,12 @@ const ModalProduct = ({ className, title, editData, onCancel, onSubmit }) => {
                                         }) => (
                                             <div>
                                                 <input
-                                                    className={`${className}-form-field`}
+                                                    className={`${className}-form-field ${
+                                                        errors.price &&
+                                                        touched.price
+                                                            ? "field-error"
+                                                            : ``
+                                                    }`}
                                                     type="text"
                                                     placeholder="Price"
                                                     {...field}
@@ -143,6 +200,34 @@ const ModalProduct = ({ className, title, editData, onCancel, onSubmit }) => {
                                     </Field>
                                 </label>
                                 <label className={`${className}-form-label`}>
+                                    Image
+                                    <Field name="img">
+                                        {({
+                                            field,
+                                            form: { touched, errors },
+                                        }) => (
+                                            <div>
+                                                <input
+                                                    className={`${className}-form-field ${
+                                                        errors.img &&
+                                                        touched.img
+                                                            ? "field-error"
+                                                            : ``
+                                                    }`}
+                                                    type="text"
+                                                    placeholder="Price"
+                                                    {...field}
+                                                />
+                                                {touched.img && errors.img && (
+                                                    <div className="error-table">
+                                                        {errors.img}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        )}
+                                    </Field>
+                                </label>
+                                <label className={`${className}-form-label`}>
                                     Description
                                     <Field name="description">
                                         {({
@@ -151,11 +236,16 @@ const ModalProduct = ({ className, title, editData, onCancel, onSubmit }) => {
                                         }) => (
                                             <div>
                                                 <textarea
-                                                    className={`${className}-form-field`}
+                                                    className={`${className}-form-field ${
+                                                        errors.description &&
+                                                        touched.description
+                                                            ? "field-error"
+                                                            : ``
+                                                    }`}
                                                     placeholder="Description"
                                                     {...field}
                                                 />
-                                                {touched.descriptioni &&
+                                                {touched.description &&
                                                     errors.description && (
                                                         <div className="error-table">
                                                             {errors.description}

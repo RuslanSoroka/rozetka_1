@@ -1,13 +1,13 @@
 import "./IdProduct.css";
 
 const IdProduct = ({ className, data, done, undone, backButton }) => {
-    const { id, name, price, quantiti, img, description } = data;
+    const { id, name, fullName, price, quantiti, img, description } = data;
 
     return (
         <section className={`${className}-info`}>
             <div key={id} className={`${className}-shop`}>
                 <div className="position-back-button-box">
-                    <p className={`${className}-title`}>{name}</p>
+                    <p className={`${className}-title`}>{fullName}</p>
                     {backButton}
                 </div>
                 <article key={id} className={`${className}-shop-info`}>
@@ -54,20 +54,8 @@ const IdProduct = ({ className, data, done, undone, backButton }) => {
                     </div>
                 </article>
                 <div className={`${className}-full-description`}>
-                    {description && (
-                        <>
-                            <p className="title-descriptions">Description</p>
-                            <p className="description1">
-                                {description.description1}
-                            </p>
-                            <p className="description2">
-                                {description.description2}
-                            </p>
-                            <p className="description3">
-                                {description.description3}
-                            </p>
-                        </>
-                    )}
+                    <p className="title-descriptions">Description</p>
+                    <p className="description">{description}</p>
                 </div>
             </div>
         </section>

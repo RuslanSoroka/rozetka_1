@@ -13,7 +13,7 @@ const PreviewProducts = () => {
     }, []);
 
     const getProducts = async () => {
-        const respond = await fetch(`${PRODUCTS_API}/productsPreview`);
+        const respond = await fetch(`${PRODUCTS_API}/product`);
         const data = await respond.json();
         setPreviewProductsData(data);
     };

@@ -3,7 +3,7 @@ import "./CardProduct.css";
 const CardProduct = ({ data, className, done, undone, onRefer }) => {
     return (
         <>
-            {data.map(({ id, name, quantiti, price, img }) => {
+            {data.map(({ id, fullName, quantiti, price, img }) => {
                 return (
                     <article
                         key={id}
@@ -15,7 +15,7 @@ const CardProduct = ({ data, className, done, undone, onRefer }) => {
                             src={img}
                             alt="products"
                         ></img>
-                        <p className="kind-preview-card">{name}</p>
+                        <p className="kind-preview-card">{fullName}</p>
 
                         <div className="box-preview-card">
                             <p className="price-preview-card">{price}$</p>

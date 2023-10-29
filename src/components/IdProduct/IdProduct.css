@@ -3,12 +3,14 @@
 }
 
 .product-box-img {
-    margin: 0 0 75px 45px;
+    min-width: 300px;
+    margin-left: 45px;
 }
 
 .product-box-info {
     margin-left: 50px;
 }
+
 .position-back-button-box {
     position: relative;
 }
@@ -40,15 +42,18 @@
     text-align: left;
 }
 
+.product-full-description {
+    margin-top: 75px;
+}
+
 .title-descriptions {
     font-size: 32px;
     margin: 0 0 48px 37px;
     color: black;
 }
-.description1,
-.description2,
-.description3 {
+
+.description {
     font-size: 24px;
     margin-bottom: 20px;
-    font-weight: bold;
+    color: black;
 }
