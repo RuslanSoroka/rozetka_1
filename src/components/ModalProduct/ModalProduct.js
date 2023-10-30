@@ -50,7 +50,7 @@ const ModalProduct = ({ className, title, editData, onCancel, onSubmit }) => {
                     <Formik
                         initialValues={setInitialValues()}
                         validationSchema={SignupSchema}
-                        onSubmit={(initialValues) => onSubmit(initialValues)}
+                        onSubmit={(values) => onSubmit(values)}
                     >
                         {({ isSubmitting }) => (
                             <Form className={`${className}-form`}>

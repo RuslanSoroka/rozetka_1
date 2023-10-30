@@ -43,12 +43,12 @@
 }
 
 .product-full-description {
-    margin-top: 75px;
+    margin: 75px 0 0 37px;
 }
 
 .title-descriptions {
     font-size: 32px;
-    margin: 0 0 48px 37px;
+    margin-bottom: 48px;
     color: black;
 }
 
