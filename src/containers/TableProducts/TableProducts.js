@@ -15,7 +15,7 @@ const TableProducts = () => {
     const [modalDelete, setModalDelete] = useState(false);
     const [modalProductEdit, setModalProductEdit] = useState(false);
     const [modalProductAdd, setModalProductAdd] = useState(false);
-    const [productId, setProductID] = useState("");
+    const [productId, setProductID] = useState(null);
     const [selectedProduct, setSelectedProduct] = useState(null);
 
     useEffect(() => {
@@ -25,7 +25,7 @@ const TableProducts = () => {
     }, [isProductsLoaded]);
 
     const getProducts = async () => {
-        const respond = await fetch(`${PRODUCTS_API}/productsTable`);
+        const respond = await fetch(`${PRODUCTS_API}/product`);
         const data = await respond.json();
         setInfoProductsTable(data);
         setIsProductsLoaded(true);
@@ -49,16 +49,36 @@ const TableProducts = () => {
         setModalProductAdd(!modalProductAdd);
     };
 
+    const addProduct = async (data) => {
+        await fetch(`${PRODUCTS_API}/product`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+        setIsProductsLoaded(false);
+        setModalProductAdd(!modalProductAdd);
+    };
+
+    const editProduct = async (data) => {
+        await fetch(`${PRODUCTS_API}/product/${productId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+        setIsProductsLoaded(false);
+        setModalProductEdit(!modalProductEdit);
+    };
+
     const deleteProduct = async () => {
-        await fetch(`${PRODUCTS_API}/productsTable/${productId}`, {
+        await fetch(`${PRODUCTS_API}/product/${productId}`, {
             method: "DELETE",
         });
         toggleModalDelete();
         setIsProductsLoaded(false);
-    };
-
-    const handleSubmit = () => {
-        setModalProductEdit(!modalProductEdit);
     };
 
     return (
@@ -95,23 +115,26 @@ const TableProducts = () => {
                     </div>
                 </div>
             </div>
+
             {modalProductEdit && (
                 <ModalProduct
                     className="modal-product"
                     title="Edit product"
                     editData={selectedProduct}
                     onCancel={toggleModalProductEdit}
-                    onSubmit={handleSubmit}
+                    onSubmit={editProduct}
                 />
             )}
+
             {modalProductAdd && (
                 <ModalProduct
                     className="modal-product"
                     title="Add product"
                     onCancel={toggleModalProductAdd}
-                    onSubmit={toggleModalProductAdd}
+                    onSubmit={addProduct}
                 />
             )}
+
             {modalDelete && (
                 <ModalDelete
                     className="modal-delete"

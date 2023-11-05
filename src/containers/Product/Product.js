@@ -16,9 +16,7 @@ const Product = () => {
     }, []);
 
     const getProduct = async () => {
-        const response = await fetch(
-            `${PRODUCTS_API}/productsPreview/${productId}`
-        );
+        const response = await fetch(`${PRODUCTS_API}/product/${productId}`);
         const data = await response.json();
 
         setSelectedProduct(data);

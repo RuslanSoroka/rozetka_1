@@ -1,6 +1,6 @@
 .modal-product-insert {
     width: 429px;
-    min-height: 532px;
+    min-height: 630px;
     margin: 100px auto 0;
     background-color: #1a1919;
     display: flex;
@@ -33,12 +33,17 @@
 .modal-product-form-label {
     color: #929292;
     margin-bottom: 5px;
+    max-width: 360px;
 }
 
 .modal-product-form-field {
     width: 360px;
     height: 31px;
     background-color: #929292;
+}
+
+.field-error {
+    border: 1px solid red;
 }
 
 .error-table {
