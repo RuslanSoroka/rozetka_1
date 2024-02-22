@@ -23,7 +23,7 @@ code {
 }
 
 .container {
-    max-width: 1314px;
-    min-width: 364px;
+    max-width: 1344px;
     margin: 0 auto;
+    padding: 0 15px;
 }

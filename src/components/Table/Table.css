@@ -1,6 +1,6 @@
 table {
     border-collapse: collapse;
-    width: 870px;
+    max-width: 870px;
 }
 
 th,
@@ -15,17 +15,17 @@ td {
 
 th {
     background-color: #0ec86f;
-    color: #726969;
+    color: black;
 }
 
 tr {
     background-color: #3cd78c;
-    color: #a58f8f;
+    color: #ffffff;
 }
 
 tr:nth-child(odd) {
     background-color: #d9d9d9;
-    color: #ffffff;
+    color: black;
 }
 
 .empty-row {
