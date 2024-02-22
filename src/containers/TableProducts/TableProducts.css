@@ -1,3 +1,7 @@
+.main {
+    padding: 0 0 50px 0;
+}
+
 .admin-panel {
     display: flex;
     justify-content: space-between;
@@ -15,6 +19,14 @@
     line-height: 77px;
     letter-spacing: 0em;
     color: #ffffff;
-    margin-bottom: 75px;
+    margin: 20px 0 75px 0;
     text-align: center;
+}
+
+@media (max-width: 767px) {
+    .product-table__title {
+        font-size: 50px;
+        line-height: 60px;
+        margin: 20px 0 40px 0;
+    }
 }
