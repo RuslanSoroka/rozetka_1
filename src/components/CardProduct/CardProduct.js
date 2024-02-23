@@ -4,12 +4,8 @@ const CardProduct = ({ data, className, done, undone, onRefer }) => (
     <>
         {data.map(({ id, fullName, quantiti, price, img }) => {
             return (
-                <div className="column">
-                    <article
-                        key={id}
-                        className={className}
-                        onClick={() => onRefer(id)}
-                    >
+                <div className="column" key={id}>
+                    <article className={className} onClick={() => onRefer(id)}>
                         <img
                             className="img-preview-card"
                             src={img}
